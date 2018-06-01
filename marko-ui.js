@@ -22,7 +22,7 @@ module.exports = function(RED) {
 		this.path = n.path || "";
 		this.projectName = n.projectName || "";
 
-		this.templatesFolder = n.templatesFolder || "templates";
+		this.templatesFolder = n.templatesFolder || "components";
 		this.template = n.template || "";
 
 		var node = this;
@@ -39,5 +39,5 @@ module.exports = function(RED) {
 
 	}
 
-	RED.nodes.registerType("marko",MarkoNode);
+	RED.nodes.registerType("marko-ui",MarkoNode);
 }

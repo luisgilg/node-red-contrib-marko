@@ -1,12 +1,12 @@
 <script type="text/javascript">
-	RED.nodes.registerType('marko', {
+	RED.nodes.registerType('marko-ui', {
 		// node definition
 		category:"config",
 		inputs: 1,
 		outputs: 1,
 		icon: "template.png",
 		label: function () {
-			return this.name || "marko";
+			return this.name || "marko-ui";
 		},
 		defaults: {
 			name: {
@@ -20,7 +20,7 @@
 			},
 
 			templatesFolder: {
-				value: "templates"
+				value: "components"
 			},
 			template: {
 				value: ""
@@ -28,16 +28,14 @@
 
 			field: {
 				value: "payload",
-				validate: RED.validators.typedInput("fieldType")
 			},
-			fieldType: {
-				value: "msg"
-			},
+
+		
 		},
 	});
 </script>
 
-<script type="text/x-red" data-template-name="marko">
+<script type="text/x-red" data-template-name="marko-ui">
 	<div class="form-row">
 		<label for="node-input-name">
 			<i class="fa fa-tag"></i>
