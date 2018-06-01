@@ -10,14 +10,14 @@ module.exports = function(RED) {
 
 	
 
-		if (RED.settings && RED.settings.get("activeProject")) {
-			var activeProject = RED.settings.get("activeProject");
+		// if (RED.settings && RED.settings.get("activeProject")) {
+		// 	var activeProject = RED.settings.get("activeProject");
 
-			if(activeProject){
-				this.projectName = n.projectName || activeProject.name;
-				this.path = n.path || activeProject.path;
-			}
-		}
+		// 	if(activeProject){
+		// 		this.projectName = n.projectName || activeProject.name;
+		// 		this.path = n.path || activeProject.path;
+		// 	}
+		// }
 
 		this.path = n.path || "";
 		this.projectName = n.projectName || "";
