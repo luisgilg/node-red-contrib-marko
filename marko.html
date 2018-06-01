@@ -1,0 +1,80 @@
+<script type="text/javascript">
+	RED.nodes.registerType('marko', {
+		// node definition
+		inputs: 1,
+		outputs: 1,
+		icon: "template.png",
+
+		defaults: {
+			name: {
+				value: ""
+			},
+			projectName: {
+				value: ""
+			},
+			path: {
+				value: ""
+			},
+
+			templatesFolder: {
+				value: "templates"
+			},
+			template: {
+				value: ""
+			},
+
+			field: {
+				value: "payload",
+				validate: RED.validators.typedInput("fieldType")
+			},
+			fieldType: {
+				value: "msg"
+			},
+		},
+	});
+</script>
+
+<script type="text/x-red" data-template-name="marko">
+	<div class="form-row">
+		<label for="node-input-name">
+			<i class="fa fa-tag"></i>
+			<span data-i18n="common.label.name"></span>
+		</label>
+		<input type="text" id="node-input-name" data-i18n="[placeholder]common.label.name">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-projectName">
+			projectName
+		</label>
+		<input type="text" id="node-input-projectName">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-path">
+			path
+		</label>
+		<input type="text" id="node-input-path">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-templatesFolder">
+			templatesFolder
+		</label>
+		<input type="text" id="node-input-templatesFolder">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-template">
+			template
+		</label>
+		<input type="text" id="node-input-template">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-field">
+			field
+		</label>
+		<input type="text" id="node-input-field">
+	</div>
+</script>
