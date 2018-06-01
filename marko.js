@@ -10,8 +10,8 @@ module.exports = function(RED) {
 
 	
 
-		if (RED.storage && RED.storage.projects) {
-			var activeProject = RED.storage.projects.getActiveProject();
+		if (RED.settings && RED.settings.get("activeProject")) {
+			var activeProject = RED.settings.get("activeProject");
 
 			if(activeProject){
 				this.projectName = n.projectName || activeProject.name;
@@ -27,7 +27,7 @@ module.exports = function(RED) {
 
 		var node = this;
 		node.on('input', function(msg) {
-			var temFile = path.join(node.path,node.template);
+			var temFile = path.join(node.path, node.templatesFolder, node.template);
 			RED.log.info(temFile);
 			var tepl = require(temFile);
 			var value = tepl.renderToString(msg) || "";
