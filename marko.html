@@ -4,7 +4,9 @@
 		inputs: 1,
 		outputs: 1,
 		icon: "template.png",
-
+		label: function () {
+			return this.name || "marko";
+		},
 		defaults: {
 			name: {
 				value: ""
