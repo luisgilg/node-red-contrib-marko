@@ -27,16 +27,25 @@ module.exports = function(RED) {
 
 		var node = this;
 		node.on('input', function(msg) {
+
 			var temFile = path.join(node.path, node.templatesFolder, node.template);
 			RED.log.info(temFile);
 			var tepl = require(temFile);
-			var value = tepl.renderToString(msg) || "";
+			tepl.renderToString(msg,(err,value)=>{
+				if(err){
+					RED.log.error(err);
+					
+					RED.util.setMessageProperty(msg,node.field,"");
+					node.send(msg);
+					return;
+				}
 
-			RED.log.info(value);
-			RED.util.setMessageProperty(msg,node.field,value);
-			node.send(msg);
+				RED.log.info(value);
+				RED.util.setMessageProperty(msg,node.field,value);
+				node.send(msg);
+
+			});			
 		});
-
 	}
 
 	RED.nodes.registerType("marko-ui",MarkoNode);
